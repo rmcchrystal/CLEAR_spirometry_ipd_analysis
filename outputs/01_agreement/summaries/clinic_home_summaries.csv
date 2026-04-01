@@ -1,0 +1,85 @@
+data,name,type,tmpt,n,n_pex,mean,sd,se,med,min,max,lo,hi
+clinic,fef2575,Between PEx start and end,same_day,30,36,87.79,60.3,11.01,66.27,5.03,240.17,66.21,109.37
+home,fef2575,Between PEx start and end,same_day,30,36,106.95,52.83,9.65,95.35,28.3,241.7,88.04,125.85
+clinic,fef2575,Between PEx start and end,same_week,45,71,96.21,65.82,9.81,83.15,5.03,241.94,76.98,115.45
+home,fef2575,Between PEx start and end,same_week,45,71,113.32,63.55,9.47,103.05,16,252.7,94.75,131.89
+clinic,fev1,Between PEx start and end,same_day,30,36,2.09,0.77,0.14,2.02,0.74,3.43,1.81,2.36
+home,fev1,Between PEx start and end,same_day,30,36,2.15,0.79,0.14,2.12,0.59,3.7,1.87,2.43
+clinic,fev1,Between PEx start and end,same_week,45,71,2.18,0.86,0.13,2.11,0.65,3.83,1.93,2.43
+home,fev1,Between PEx start and end,same_week,45,71,2.22,0.86,0.13,2.13,0.59,3.87,1.97,2.47
+clinic,fev1_fvc,Between PEx start and end,same_day,30,36,68.64,9.65,1.76,69.52,44.97,87.51,65.19,72.1
+home,fev1_fvc,Between PEx start and end,same_day,30,36,77.31,9.89,1.81,76,60,100,73.77,80.85
+clinic,fev1_fvc,Between PEx start and end,same_week,45,71,68.71,11.72,1.75,69.97,38.72,89.58,65.29,72.14
+home,fev1_fvc,Between PEx start and end,same_week,45,71,75.3,12,1.79,75.5,43,100,71.79,78.8
+clinic,fev1pp,Between PEx start and end,same_day,30,36,79.17,24.51,4.48,77.3,37.4,124.2,70.39,87.94
+home,fev1pp,Between PEx start and end,same_day,30,36,80.84,25.33,4.63,82.66,29.74,135.17,71.77,89.9
+clinic,fev1pp,Between PEx start and end,same_week,45,71,80.73,25.95,3.87,79.71,36.45,140.03,73.14,88.31
+home,fev1pp,Between PEx start and end,same_week,45,71,83.06,25.38,3.78,84.62,29.74,141.22,75.65,90.48
+clinic,fvc,Between PEx start and end,same_day,30,36,3.02,0.94,0.17,2.89,1.17,4.78,2.69,3.36
+home,fvc,Between PEx start and end,same_day,30,36,2.96,1,0.18,3.04,0.85,5.17,2.6,3.32
+clinic,fvc,Between PEx start and end,same_week,45,71,3.13,0.98,0.15,2.97,1.17,5.17,2.84,3.41
+home,fvc,Between PEx start and end,same_week,45,71,3.06,0.99,0.15,3.04,0.85,5.17,2.77,3.35
+clinic,fvcpp,Between PEx start and end,same_day,30,36,89.03,22.55,4.12,91.45,44.88,129.65,80.96,97.1
+home,fvcpp,Between PEx start and end,same_day,30,36,86.64,25.19,4.6,89.23,32.87,136.78,77.63,95.66
+clinic,fvcpp,Between PEx start and end,same_week,45,71,90.67,21.69,3.23,91.84,44.88,138.72,84.34,97.01
+home,fvcpp,Between PEx start and end,same_week,45,71,90.1,23.31,3.47,90.79,32.87,136.78,83.29,96.92
+clinic,pef,Between PEx start and end,same_day,30,36,311.42,126.5,23.1,306.65,89.7,614.3,266.15,356.68
+home,pef,Between PEx start and end,same_day,30,36,333.22,123.78,22.6,338.6,47.3,609.2,288.92,377.51
+clinic,pef,Between PEx start and end,same_week,45,71,325,139.3,20.77,308.65,89.7,751.2,284.3,365.7
+home,pef,Between PEx start and end,same_week,45,71,343.45,136.74,20.38,338.6,47.3,709.6,303.5,383.4
+clinic,fef2575,During stable periods,same_day,214,NA,98.86,64.98,4.44,83.76,13.56,336.43,90.15,107.56
+home,fef2575,During stable periods,same_day,212,NA,112.85,67.47,4.63,98.2,14.9,361.3,103.76,121.93
+clinic,fef2575,During stable periods,same_week,243,NA,95.61,62.69,4.02,79.58,13.56,336.43,87.72,103.49
+home,fef2575,During stable periods,same_week,239,NA,110.53,66.85,4.32,95,13.8,365.7,102.05,119
+clinic,fev1,During stable periods,same_day,214,NA,2.26,0.84,0.06,2.18,0.65,5.26,2.14,2.37
+home,fev1,During stable periods,same_day,214,NA,2.25,0.88,0.06,2.16,0.17,5.72,2.13,2.37
+clinic,fev1,During stable periods,same_week,243,NA,2.24,0.82,0.05,2.17,0.59,5.26,2.14,2.35
+home,fev1,During stable periods,same_week,243,NA,2.22,0.86,0.06,2.11,0.17,5.72,2.11,2.33
+clinic,fev1_fvc,During stable periods,same_day,214,NA,69.5,10.9,0.75,71.3,35.98,94.72,68.04,70.96
+home,fev1_fvc,During stable periods,same_day,212,NA,74.37,12.85,0.88,75,21,100,72.64,76.1
+clinic,fev1_fvc,During stable periods,same_week,243,NA,68.88,10.94,0.7,70.41,33.72,94.72,67.5,70.26
+home,fev1_fvc,During stable periods,same_week,239,NA,74.24,12.98,0.84,75,21,100,72.59,75.89
+clinic,fev1pp,During stable periods,same_day,214,NA,84.44,25.01,1.71,85.05,35.27,292.09,81.09,87.79
+home,fev1pp,During stable periods,same_day,213,NA,84.71,25.72,1.76,84.46,5.4,177.23,81.26,88.17
+clinic,fev1pp,During stable periods,same_week,243,NA,83.57,23.73,1.52,84.04,33.3,292.09,80.59,86.56
+home,fev1pp,During stable periods,same_week,242,NA,83.38,25.13,1.62,83.14,5.4,177.23,80.22,86.55
+clinic,fvc,During stable periods,same_day,214,NA,3.24,1.05,0.07,3.14,0.95,6.34,3.1,3.38
+home,fvc,During stable periods,same_day,214,NA,3.15,1.04,0.07,3.03,0.17,6.65,3.01,3.29
+clinic,fvc,During stable periods,same_week,243,NA,3.26,1.02,0.07,3.14,0.95,6.43,3.13,3.39
+home,fvc,During stable periods,same_week,243,NA,3.13,1.02,0.07,3,0.17,6.65,3,3.25
+clinic,fvcpp,During stable periods,same_day,214,NA,94.51,23.97,1.64,94.96,36.22,383.97,91.3,97.72
+home,fvcpp,During stable periods,same_day,213,NA,92.51,21.89,1.5,92.37,4.08,187.13,89.58,95.45
+clinic,fvcpp,During stable periods,same_week,243,NA,94.48,22.59,1.45,95.15,36.22,383.97,91.64,97.32
+home,fvcpp,During stable periods,same_week,242,NA,91.53,22.08,1.42,91.93,4.08,187.13,88.75,94.32
+clinic,pef,During stable periods,same_day,214,NA,348.37,128.22,8.76,342.45,76.9,800,331.19,365.55
+home,pef,During stable periods,same_day,214,NA,362.35,134.95,9.23,364.15,61.2,826.4,344.27,380.43
+clinic,pef,During stable periods,same_week,243,NA,347.92,125.18,8.03,340.1,76.9,800,332.19,363.66
+home,pef,During stable periods,same_week,243,NA,359.69,132.58,8.51,354,57.1,826.4,343.02,376.36
+clinic,fef2575,Irrespective of disease status,same_day,219,NA,98.06,64.66,4.37,82.95,5.03,336.43,89.5,106.63
+home,fef2575,Irrespective of disease status,same_day,217,NA,112.42,66.49,4.51,98.2,14.9,361.3,103.57,121.26
+clinic,fef2575,Irrespective of disease status,same_week,244,NA,95.4,62.88,4.03,79.55,5.03,336.43,87.51,103.29
+home,fef2575,Irrespective of disease status,same_week,240,NA,110.42,66.44,4.29,96.2,13.8,365.7,102.02,118.83
+clinic,fev1,Irrespective of disease status,same_day,219,NA,2.24,0.84,0.06,2.16,0.65,5.26,2.13,2.36
+home,fev1,Irrespective of disease status,same_day,219,NA,2.25,0.87,0.06,2.14,0.17,5.72,2.13,2.36
+clinic,fev1,Irrespective of disease status,same_week,244,NA,2.24,0.83,0.05,2.15,0.59,5.26,2.13,2.34
+home,fev1,Irrespective of disease status,same_week,244,NA,2.22,0.86,0.05,2.11,0.17,5.72,2.11,2.33
+clinic,fev1_fvc,Irrespective of disease status,same_day,219,NA,69.44,10.81,0.73,71.16,35.98,94.72,68.01,70.87
+home,fev1_fvc,Irrespective of disease status,same_day,217,NA,74.58,12.67,0.86,75,21,100,72.89,76.27
+clinic,fev1_fvc,Irrespective of disease status,same_week,244,NA,68.79,11.08,0.71,70.26,32.54,96.74,67.4,70.18
+home,fev1_fvc,Irrespective of disease status,same_week,240,NA,74.24,13,0.84,75,21,100,72.59,75.88
+clinic,fev1pp,Irrespective of disease status,same_day,219,NA,84.06,24.99,1.69,84.74,35.27,292.09,80.75,87.37
+home,fev1pp,Irrespective of disease status,same_day,218,NA,84.43,25.69,1.74,84.32,5.4,177.23,81.02,87.84
+clinic,fev1pp,Irrespective of disease status,same_week,244,NA,83.2,23.89,1.53,83.85,30.28,292.09,80.21,86.2
+home,fev1pp,Irrespective of disease status,same_week,243,NA,83.15,25.12,1.61,83.12,5.4,177.23,79.99,86.3
+clinic,fvc,Irrespective of disease status,same_day,219,NA,3.23,1.04,0.07,3.13,0.95,6.34,3.09,3.37
+home,fvc,Irrespective of disease status,same_day,219,NA,3.14,1.04,0.07,3.04,0.17,6.65,3,3.28
+clinic,fvc,Irrespective of disease status,same_week,244,NA,3.25,1.02,0.07,3.13,0.95,6.43,3.12,3.38
+home,fvc,Irrespective of disease status,same_week,244,NA,3.12,1.01,0.06,3.02,0.17,6.65,3,3.25
+clinic,fvcpp,Irrespective of disease status,same_day,219,NA,94.11,23.89,1.61,94.71,36.22,383.97,90.95,97.28
+home,fvcpp,Irrespective of disease status,same_day,218,NA,92.09,22.17,1.5,92.22,4.08,187.13,89.15,95.03
+clinic,fvcpp,Irrespective of disease status,same_week,244,NA,94.14,22.5,1.44,94.92,36.22,383.97,91.32,96.96
+home,fvcpp,Irrespective of disease status,same_week,243,NA,91.32,22.06,1.42,91.66,4.08,187.13,88.54,94.09
+clinic,pef,Irrespective of disease status,same_day,219,NA,345.72,128.32,8.67,338.1,76.9,800,328.73,362.72
+home,pef,Irrespective of disease status,same_day,219,NA,360.26,134.28,9.07,359.85,47.3,826.4,342.48,378.05
+clinic,pef,Irrespective of disease status,same_week,244,NA,346.07,125.8,8.05,335.65,76.9,800,330.28,361.85
+home,pef,Irrespective of disease status,same_week,244,NA,358.29,132.39,8.48,351.25,47.3,826.4,341.68,374.9

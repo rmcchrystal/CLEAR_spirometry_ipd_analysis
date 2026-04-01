@@ -1,0 +1,29 @@
+measure,timepoint,mean,sd,lci,uci
+fef2575,PEx end,103.55,59.15,95.13,111.97
+fef2575,PEx start,100.78,62.66,91.64,109.92
+fef2575,Post-PEx,103.87,56.12,95.4,112.35
+fef2575,Pre-PEx stable,104,63.89,94.35,113.64
+fev1,PEx end,2.1,0.78,1.99,2.21
+fev1,PEx start,2.08,0.81,1.97,2.2
+fev1,Post-PEx,2.14,0.79,2.02,2.26
+fev1,Pre-PEx stable,2.11,0.83,1.99,2.24
+fev1_fvc,PEx end,72.98,13.85,71.01,74.95
+fev1_fvc,PEx start,73.04,14.16,70.97,75.1
+fev1_fvc,Post-PEx,74.47,14.43,72.29,76.65
+fev1_fvc,Pre-PEx stable,72.23,13.22,70.23,74.22
+fev1pp,PEx end,77.28,22.94,74.01,80.55
+fev1pp,PEx start,76.65,24.34,73.1,80.19
+fev1pp,Post-PEx,78.58,24.36,74.9,82.26
+fev1pp,Pre-PEx stable,77.94,25.46,74.09,81.78
+fvc,PEx end,3,0.97,2.87,3.14
+fvc,PEx start,2.99,0.98,2.85,3.13
+fvc,Post-PEx,3.05,0.97,2.9,3.19
+fvc,Pre-PEx stable,3.05,1.03,2.9,3.21
+fvcpp,PEx end,86.71,21.39,83.66,89.75
+fvcpp,PEx start,86.34,22.37,83.08,89.6
+fvcpp,Post-PEx,87.73,22.36,84.36,91.11
+fvcpp,Pre-PEx stable,88.06,23.65,84.49,91.63
+pef,PEx end,345.55,131.94,326.82,364.29
+pef,PEx start,343.81,130.31,324.86,362.77
+pef,Post-PEx,356.22,129.26,336.77,375.68
+pef,Pre-PEx stable,352.84,138.14,332.05,373.63

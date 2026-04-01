@@ -1,0 +1,43 @@
+name,type,tmpt,mean_diff,se_diff,lo_diff,hi_diff
+fef2575,Between PEx start and end,same_day,-19.16,14.64,-47.85,9.53
+fef2575,Between PEx start and end,same_week,-17.11,13.64,-43.84,9.62
+fev1,Between PEx start and end,same_day,-0.06,0.2,-0.45,0.33
+fev1,Between PEx start and end,same_week,-0.04,0.18,-0.4,0.32
+fev1_fvc,Between PEx start and end,same_day,-8.67,2.52,-13.61,-3.73
+fev1_fvc,Between PEx start and end,same_week,-6.59,2.5,-11.49,-1.69
+fev1pp,Between PEx start and end,same_day,-1.67,6.44,-14.28,10.94
+fev1pp,Between PEx start and end,same_week,-2.33,5.41,-12.94,8.28
+fvc,Between PEx start and end,same_day,0.06,0.25,-0.43,0.55
+fvc,Between PEx start and end,same_week,0.07,0.21,-0.34,0.48
+fvcpp,Between PEx start and end,same_day,2.39,6.17,-9.71,14.49
+fvcpp,Between PEx start and end,same_week,0.57,4.75,-8.73,9.87
+pef,Between PEx start and end,same_day,-21.8,32.31,-85.13,41.53
+pef,Between PEx start and end,same_week,-18.45,29.1,-75.48,38.58
+fef2575,During stable periods,same_day,-13.99,6.42,-26.57,-1.41
+fef2575,During stable periods,same_week,-14.92,5.91,-26.49,-3.35
+fev1,During stable periods,same_day,0.01,0.08,-0.15,0.17
+fev1,During stable periods,same_week,0.02,0.08,-0.13,0.17
+fev1_fvc,During stable periods,same_day,-4.87,1.16,-7.13,-2.61
+fev1_fvc,During stable periods,same_week,-5.36,1.09,-7.5,-3.22
+fev1pp,During stable periods,same_day,-0.27,2.46,-5.08,4.54
+fev1pp,During stable periods,same_week,0.19,2.22,-4.16,4.54
+fvc,During stable periods,same_day,0.09,0.1,-0.11,0.29
+fvc,During stable periods,same_week,0.13,0.09,-0.05,0.31
+fvcpp,During stable periods,same_day,2,2.22,-2.35,6.35
+fvcpp,During stable periods,same_week,2.95,2.03,-1.03,6.93
+pef,During stable periods,same_day,-13.98,12.72,-38.92,10.96
+pef,During stable periods,same_week,-11.77,11.7,-34.7,11.16
+fef2575,Irrespective of disease status,same_day,-14.36,6.28,-26.67,-2.05
+fef2575,Irrespective of disease status,same_week,-15.02,5.88,-26.55,-3.49
+fev1,Irrespective of disease status,same_day,-0.01,0.08,-0.17,0.15
+fev1,Irrespective of disease status,same_week,0.02,0.08,-0.13,0.17
+fev1_fvc,Irrespective of disease status,same_day,-5.14,1.13,-7.35,-2.93
+fev1_fvc,Irrespective of disease status,same_week,-5.45,1.1,-7.6,-3.3
+fev1pp,Irrespective of disease status,same_day,-0.37,2.42,-5.12,4.38
+fev1pp,Irrespective of disease status,same_week,0.05,2.22,-4.3,4.4
+fvc,Irrespective of disease status,same_day,0.09,0.1,-0.1,0.28
+fvc,Irrespective of disease status,same_week,0.13,0.09,-0.05,0.31
+fvcpp,Irrespective of disease status,same_day,2.02,2.2,-2.3,6.34
+fvcpp,Irrespective of disease status,same_week,2.82,2.02,-1.14,6.78
+pef,Irrespective of disease status,same_day,-14.54,12.55,-39.14,10.06
+pef,Irrespective of disease status,same_week,-12.22,11.69,-35.14,10.7

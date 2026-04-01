@@ -1,0 +1,43 @@
+type,tmpt,name,n,n_pairs,cor_pearsons,cor_p
+Between PEx start and end,same_day,fef2575,30,36,0.9,0
+Between PEx start and end,same_day,fev1,30,36,0.94,0
+Between PEx start and end,same_day,fev1_fvc,30,36,0.45,0.0058
+Between PEx start and end,same_day,fev1pp,30,36,0.86,0
+Between PEx start and end,same_day,fvc,30,36,0.89,0
+Between PEx start and end,same_day,fvcpp,30,36,0.76,0
+Between PEx start and end,same_day,pef,30,36,0.89,0
+Between PEx start and end,same_week,fef2575,45,54,0.92,0
+Between PEx start and end,same_week,fev1,45,54,0.95,0
+Between PEx start and end,same_week,fev1_fvc,45,54,0.7,0
+Between PEx start and end,same_week,fev1pp,45,54,0.87,0
+Between PEx start and end,same_week,fvc,45,54,0.91,0
+Between PEx start and end,same_week,fvcpp,45,54,0.74,0
+Between PEx start and end,same_week,pef,45,54,0.91,0
+During stable periods,same_day,fef2575,212,460,0.87,0
+During stable periods,same_day,fev1,214,466,0.93,0
+During stable periods,same_day,fev1_fvc,212,460,0.59,0
+During stable periods,same_day,fev1pp,213,464,0.75,0
+During stable periods,same_day,fvc,214,466,0.91,0
+During stable periods,same_day,fvcpp,213,464,0.59,0
+During stable periods,same_day,pef,214,466,0.89,0
+During stable periods,same_week,fef2575,239,705,0.86,0
+During stable periods,same_week,fev1,243,715,0.92,0
+During stable periods,same_week,fev1_fvc,239,705,0.63,0
+During stable periods,same_week,fev1pp,242,713,0.75,0
+During stable periods,same_week,fvc,243,715,0.9,0
+During stable periods,same_week,fvcpp,242,713,0.6,0
+During stable periods,same_week,pef,243,715,0.88,0
+Irrespective of disease status,same_day,fef2575,217,496,0.88,0
+Irrespective of disease status,same_day,fev1,219,502,0.93,0
+Irrespective of disease status,same_day,fev1_fvc,217,496,0.58,0
+Irrespective of disease status,same_day,fev1pp,218,500,0.76,0
+Irrespective of disease status,same_day,fvc,219,502,0.9,0
+Irrespective of disease status,same_day,fvcpp,218,500,0.6,0
+Irrespective of disease status,same_day,pef,219,502,0.89,0
+Irrespective of disease status,same_week,fef2575,240,770,0.86,0
+Irrespective of disease status,same_week,fev1,244,780,0.92,0
+Irrespective of disease status,same_week,fev1_fvc,240,770,0.64,0
+Irrespective of disease status,same_week,fev1pp,243,778,0.76,0
+Irrespective of disease status,same_week,fvc,244,780,0.9,0
+Irrespective of disease status,same_week,fvcpp,243,778,0.61,0
+Irrespective of disease status,same_week,pef,244,780,0.88,0

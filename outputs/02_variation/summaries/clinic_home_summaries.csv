@@ -1,0 +1,281 @@
+data,name,type,tmpt,visit,n,mean,sd,se,cv,nm
+Clinic,fef2575,During stable periods,same_day,V1,133,103.58,68.7,5.96,0.66,FEF25-75 (%)
+Clinic,fef2575,During stable periods,same_day,V2,132,101.45,67.17,5.85,0.66,FEF25-75 (%)
+Clinic,fef2575,During stable periods,same_day,V3,93,100,59.96,6.22,0.6,FEF25-75 (%)
+Clinic,fef2575,During stable periods,same_day,V4,62,87.12,62.26,7.91,0.71,FEF25-75 (%)
+Clinic,fef2575,During stable periods,same_day,V5,40,100.05,60.03,9.49,0.6,FEF25-75 (%)
+Home,fef2575,During stable periods,same_day,V1,133,112.53,68.62,5.95,0.61,FEF25-75 (%)
+Home,fef2575,During stable periods,same_day,V2,132,114.78,70.32,6.12,0.61,FEF25-75 (%)
+Home,fef2575,During stable periods,same_day,V3,93,116.78,64.1,6.65,0.55,FEF25-75 (%)
+Home,fef2575,During stable periods,same_day,V4,62,105.11,66.73,8.47,0.63,FEF25-75 (%)
+Home,fef2575,During stable periods,same_day,V5,40,119.22,65.88,10.42,0.55,FEF25-75 (%)
+Clinic,fev1,During stable periods,same_day,V1,133,2.25,0.83,0.07,0.37,FEV1 (L/sec)
+Clinic,fev1,During stable periods,same_day,V2,132,2.3,0.86,0.08,0.38,FEV1 (L/sec)
+Clinic,fev1,During stable periods,same_day,V3,93,2.3,0.8,0.08,0.35,FEV1 (L/sec)
+Clinic,fev1,During stable periods,same_day,V4,62,2.2,0.9,0.11,0.41,FEV1 (L/sec)
+Clinic,fev1,During stable periods,same_day,V5,40,2.3,0.79,0.12,0.34,FEV1 (L/sec)
+Home,fev1,During stable periods,same_day,V1,133,2.22,0.86,0.07,0.39,FEV1 (L/sec)
+Home,fev1,During stable periods,same_day,V2,132,2.3,0.9,0.08,0.39,FEV1 (L/sec)
+Home,fev1,During stable periods,same_day,V3,93,2.28,0.82,0.09,0.36,FEV1 (L/sec)
+Home,fev1,During stable periods,same_day,V4,62,2.23,0.96,0.12,0.43,FEV1 (L/sec)
+Home,fev1,During stable periods,same_day,V5,40,2.33,0.84,0.13,0.36,FEV1 (L/sec)
+Clinic,fev1_fvc,During stable periods,same_day,V1,133,70.62,10.93,0.95,0.15,FEV1/FVC
+Clinic,fev1_fvc,During stable periods,same_day,V2,132,69.45,10.62,0.92,0.15,FEV1/FVC
+Clinic,fev1_fvc,During stable periods,same_day,V3,93,70.27,10.63,1.1,0.15,FEV1/FVC
+Clinic,fev1_fvc,During stable periods,same_day,V4,62,66.33,11.87,1.51,0.18,FEV1/FVC
+Clinic,fev1_fvc,During stable periods,same_day,V5,40,70.55,9.23,1.46,0.13,FEV1/FVC
+Home,fev1_fvc,During stable periods,same_day,V1,133,73.57,11.89,1.03,0.16,FEV1/FVC
+Home,fev1_fvc,During stable periods,same_day,V2,132,73.55,11.76,1.02,0.16,FEV1/FVC
+Home,fev1_fvc,During stable periods,same_day,V3,93,76.12,14.09,1.46,0.19,FEV1/FVC
+Home,fev1_fvc,During stable periods,same_day,V4,62,71.82,14.44,1.83,0.2,FEV1/FVC
+Home,fev1_fvc,During stable periods,same_day,V5,40,78.75,12.96,2.05,0.16,FEV1/FVC
+Clinic,fev1pp,During stable periods,same_day,V1,133,85.98,28.38,2.46,0.33,FEV1 % predicted
+Clinic,fev1pp,During stable periods,same_day,V2,132,86.36,24.5,2.13,0.28,FEV1 % predicted
+Clinic,fev1pp,During stable periods,same_day,V3,93,85.11,21.91,2.27,0.26,FEV1 % predicted
+Clinic,fev1pp,During stable periods,same_day,V4,62,79.32,21.87,2.78,0.28,FEV1 % predicted
+Clinic,fev1pp,During stable periods,same_day,V5,40,84.9,22.77,3.6,0.27,FEV1 % predicted
+Home,fev1pp,During stable periods,same_day,V1,133,84.71,24.79,2.15,0.29,FEV1 % predicted
+Home,fev1pp,During stable periods,same_day,V2,132,86.7,27.15,2.36,0.31,FEV1 % predicted
+Home,fev1pp,During stable periods,same_day,V3,93,84.46,24.09,2.5,0.29,FEV1 % predicted
+Home,fev1pp,During stable periods,same_day,V4,62,82.57,27.13,3.45,0.33,FEV1 % predicted
+Home,fev1pp,During stable periods,same_day,V5,40,86.43,24.99,3.95,0.29,FEV1 % predicted
+Clinic,fvc,During stable periods,same_day,V1,133,3.2,1.03,0.09,0.32,FVC (L)
+Clinic,fvc,During stable periods,same_day,V2,132,3.29,1.03,0.09,0.31,FVC (L)
+Clinic,fvc,During stable periods,same_day,V3,93,3.28,1.03,0.11,0.31,FVC (L)
+Clinic,fvc,During stable periods,same_day,V4,62,3.32,1.16,0.15,0.35,FVC (L)
+Clinic,fvc,During stable periods,same_day,V5,40,3.26,0.99,0.16,0.3,FVC (L)
+Home,fvc,During stable periods,same_day,V1,133,3.06,1.01,0.09,0.33,FVC (L)
+Home,fvc,During stable periods,same_day,V2,132,3.21,1.06,0.09,0.33,FVC (L)
+Home,fvc,During stable periods,same_day,V3,93,3.2,0.95,0.1,0.3,FVC (L)
+Home,fvc,During stable periods,same_day,V4,62,3.25,1.2,0.15,0.37,FVC (L)
+Home,fvc,During stable periods,same_day,V5,40,3.17,1.02,0.16,0.32,FVC (L)
+Clinic,fvcpp,During stable periods,same_day,V1,133,95.59,31.49,2.73,0.33,FVC % predicted
+Clinic,fvcpp,During stable periods,same_day,V2,132,96.16,20.14,1.75,0.21,FVC % predicted
+Clinic,fvcpp,During stable periods,same_day,V3,93,94.47,19.65,2.04,0.21,FVC % predicted
+Clinic,fvcpp,During stable periods,same_day,V4,62,93.27,20.04,2.54,0.21,FVC % predicted
+Clinic,fvcpp,During stable periods,same_day,V5,40,92.44,19.03,3.01,0.21,FVC % predicted
+Home,fvcpp,During stable periods,same_day,V1,133,91.17,20.48,1.78,0.22,FVC % predicted
+Home,fvcpp,During stable periods,same_day,V2,132,94.45,23.2,2.02,0.25,FVC % predicted
+Home,fvcpp,During stable periods,same_day,V3,93,92.51,19.74,2.05,0.21,FVC % predicted
+Home,fvcpp,During stable periods,same_day,V4,62,93.93,24.41,3.1,0.26,FVC % predicted
+Home,fvcpp,During stable periods,same_day,V5,40,90.9,22.38,3.54,0.25,FVC % predicted
+Clinic,pef,During stable periods,same_day,V1,133,337.49,121.92,10.57,0.36,PEF (L)
+Clinic,pef,During stable periods,same_day,V2,132,355.39,128.13,11.15,0.36,PEF (L)
+Clinic,pef,During stable periods,same_day,V3,93,354.61,118.64,12.3,0.33,PEF (L)
+Clinic,pef,During stable periods,same_day,V4,62,350.75,138.23,17.56,0.39,PEF (L)
+Clinic,pef,During stable periods,same_day,V5,40,371.14,140.91,22.28,0.38,PEF (L)
+Home,pef,During stable periods,same_day,V1,133,344.67,124.88,10.83,0.36,PEF (L)
+Home,pef,During stable periods,same_day,V2,132,375.44,137.34,11.95,0.37,PEF (L)
+Home,pef,During stable periods,same_day,V3,93,369.66,127.55,13.23,0.35,PEF (L)
+Home,pef,During stable periods,same_day,V4,62,365.75,142,18.03,0.39,PEF (L)
+Home,pef,During stable periods,same_day,V5,40,379.66,157.19,24.85,0.41,PEF (L)
+Clinic,fef2575,Irrespective of disease status,same_day,V1,133,103.58,68.7,5.96,0.66,FEF25-75 (%)
+Clinic,fef2575,Irrespective of disease status,same_day,V2,141,102.41,66.7,5.62,0.65,FEF25-75 (%)
+Clinic,fef2575,Irrespective of disease status,same_day,V3,108,97.31,59.1,5.69,0.61,FEF25-75 (%)
+Clinic,fef2575,Irrespective of disease status,same_day,V4,69,85.83,62.7,7.55,0.73,FEF25-75 (%)
+Clinic,fef2575,Irrespective of disease status,same_day,V5,44,98.81,60.67,9.15,0.61,FEF25-75 (%)
+Home,fef2575,Irrespective of disease status,same_day,V1,133,112.53,68.62,5.95,0.61,FEF25-75 (%)
+Home,fef2575,Irrespective of disease status,same_day,V2,141,115.76,69.1,5.82,0.6,FEF25-75 (%)
+Home,fef2575,Irrespective of disease status,same_day,V3,108,114.99,61.63,5.93,0.54,FEF25-75 (%)
+Home,fef2575,Irrespective of disease status,same_day,V4,69,104.21,67.18,8.09,0.64,FEF25-75 (%)
+Home,fef2575,Irrespective of disease status,same_day,V5,44,117.33,64.55,9.73,0.55,FEF25-75 (%)
+Clinic,fev1,Irrespective of disease status,same_day,V1,133,2.25,0.83,0.07,0.37,FEV1 (L/sec)
+Clinic,fev1,Irrespective of disease status,same_day,V2,141,2.32,0.85,0.07,0.37,FEV1 (L/sec)
+Clinic,fev1,Irrespective of disease status,same_day,V3,108,2.25,0.78,0.07,0.34,FEV1 (L/sec)
+Clinic,fev1,Irrespective of disease status,same_day,V4,69,2.17,0.9,0.11,0.41,FEV1 (L/sec)
+Clinic,fev1,Irrespective of disease status,same_day,V5,44,2.27,0.8,0.12,0.35,FEV1 (L/sec)
+Home,fev1,Irrespective of disease status,same_day,V1,133,2.22,0.86,0.07,0.39,FEV1 (L/sec)
+Home,fev1,Irrespective of disease status,same_day,V2,141,2.33,0.89,0.07,0.38,FEV1 (L/sec)
+Home,fev1,Irrespective of disease status,same_day,V3,108,2.26,0.79,0.08,0.35,FEV1 (L/sec)
+Home,fev1,Irrespective of disease status,same_day,V4,69,2.2,0.95,0.11,0.43,FEV1 (L/sec)
+Home,fev1,Irrespective of disease status,same_day,V5,44,2.28,0.85,0.13,0.37,FEV1 (L/sec)
+Clinic,fev1_fvc,Irrespective of disease status,same_day,V1,133,70.62,10.93,0.95,0.15,FEV1/FVC
+Clinic,fev1_fvc,Irrespective of disease status,same_day,V2,141,69.53,10.46,0.88,0.15,FEV1/FVC
+Clinic,fev1_fvc,Irrespective of disease status,same_day,V3,108,70.14,10.44,1,0.15,FEV1/FVC
+Clinic,fev1_fvc,Irrespective of disease status,same_day,V4,69,66.01,11.84,1.43,0.18,FEV1/FVC
+Clinic,fev1_fvc,Irrespective of disease status,same_day,V5,44,70.59,9.24,1.39,0.13,FEV1/FVC
+Home,fev1_fvc,Irrespective of disease status,same_day,V1,133,73.57,11.89,1.03,0.16,FEV1/FVC
+Home,fev1_fvc,Irrespective of disease status,same_day,V2,141,73.65,11.49,0.97,0.16,FEV1/FVC
+Home,fev1_fvc,Irrespective of disease status,same_day,V3,108,76.53,13.63,1.31,0.18,FEV1/FVC
+Home,fev1_fvc,Irrespective of disease status,same_day,V4,69,71.97,14.08,1.7,0.2,FEV1/FVC
+Home,fev1_fvc,Irrespective of disease status,same_day,V5,44,78.57,12.46,1.88,0.16,FEV1/FVC
+Clinic,fev1pp,Irrespective of disease status,same_day,V1,133,85.98,28.38,2.46,0.33,FEV1 % predicted
+Clinic,fev1pp,Irrespective of disease status,same_day,V2,141,86.64,24.06,2.03,0.28,FEV1 % predicted
+Clinic,fev1pp,Irrespective of disease status,same_day,V3,108,83.81,22.03,2.12,0.26,FEV1 % predicted
+Clinic,fev1pp,Irrespective of disease status,same_day,V4,69,78.69,22.55,2.71,0.29,FEV1 % predicted
+Clinic,fev1pp,Irrespective of disease status,same_day,V5,44,84.99,23.55,3.55,0.28,FEV1 % predicted
+Home,fev1pp,Irrespective of disease status,same_day,V1,133,84.71,24.79,2.15,0.29,FEV1 % predicted
+Home,fev1pp,Irrespective of disease status,same_day,V2,141,87.02,26.73,2.25,0.31,FEV1 % predicted
+Home,fev1pp,Irrespective of disease status,same_day,V3,108,84.24,23.46,2.26,0.28,FEV1 % predicted
+Home,fev1pp,Irrespective of disease status,same_day,V4,69,82,27.54,3.32,0.34,FEV1 % predicted
+Home,fev1pp,Irrespective of disease status,same_day,V5,44,84.62,25.98,3.92,0.31,FEV1 % predicted
+Clinic,fvc,Irrespective of disease status,same_day,V1,133,3.2,1.03,0.09,0.32,FVC (L)
+Clinic,fvc,Irrespective of disease status,same_day,V2,141,3.32,1.02,0.09,0.31,FVC (L)
+Clinic,fvc,Irrespective of disease status,same_day,V3,108,3.22,1,0.1,0.31,FVC (L)
+Clinic,fvc,Irrespective of disease status,same_day,V4,69,3.27,1.14,0.14,0.35,FVC (L)
+Clinic,fvc,Irrespective of disease status,same_day,V5,44,3.2,1,0.15,0.31,FVC (L)
+Home,fvc,Irrespective of disease status,same_day,V1,133,3.06,1.01,0.09,0.33,FVC (L)
+Home,fvc,Irrespective of disease status,same_day,V2,141,3.24,1.05,0.09,0.32,FVC (L)
+Home,fvc,Irrespective of disease status,same_day,V3,108,3.16,0.92,0.09,0.29,FVC (L)
+Home,fvc,Irrespective of disease status,same_day,V4,69,3.2,1.19,0.14,0.37,FVC (L)
+Home,fvc,Irrespective of disease status,same_day,V5,44,3.09,1.05,0.16,0.34,FVC (L)
+Clinic,fvcpp,Irrespective of disease status,same_day,V1,133,95.59,31.49,2.73,0.33,FVC % predicted
+Clinic,fvcpp,Irrespective of disease status,same_day,V2,141,96.37,19.79,1.67,0.21,FVC % predicted
+Clinic,fvcpp,Irrespective of disease status,same_day,V3,108,93.23,20.18,1.94,0.22,FVC % predicted
+Clinic,fvcpp,Irrespective of disease status,same_day,V4,69,92.75,20.42,2.46,0.22,FVC % predicted
+Clinic,fvcpp,Irrespective of disease status,same_day,V5,44,92.33,19.58,2.95,0.21,FVC % predicted
+Home,fvcpp,Irrespective of disease status,same_day,V1,133,91.17,20.48,1.78,0.22,FVC % predicted
+Home,fvcpp,Irrespective of disease status,same_day,V2,141,94.7,23.06,1.94,0.24,FVC % predicted
+Home,fvcpp,Irrespective of disease status,same_day,V3,108,91.89,19.61,1.89,0.21,FVC % predicted
+Home,fvcpp,Irrespective of disease status,same_day,V4,69,93.08,24.96,3,0.27,FVC % predicted
+Home,fvcpp,Irrespective of disease status,same_day,V5,44,88.64,24.17,3.64,0.27,FVC % predicted
+Clinic,pef,Irrespective of disease status,same_day,V1,133,337.49,121.92,10.57,0.36,PEF (L)
+Clinic,pef,Irrespective of disease status,same_day,V2,141,358.43,127.7,10.75,0.36,PEF (L)
+Clinic,pef,Irrespective of disease status,same_day,V3,108,347.99,119.86,11.53,0.34,PEF (L)
+Clinic,pef,Irrespective of disease status,same_day,V4,69,340.72,135.91,16.36,0.4,PEF (L)
+Clinic,pef,Irrespective of disease status,same_day,V5,44,362.97,141.15,21.28,0.39,PEF (L)
+Home,pef,Irrespective of disease status,same_day,V1,133,344.67,124.88,10.83,0.36,PEF (L)
+Home,pef,Irrespective of disease status,same_day,V2,141,378.02,135.27,11.39,0.36,PEF (L)
+Home,pef,Irrespective of disease status,same_day,V3,108,366.3,124.29,11.96,0.34,PEF (L)
+Home,pef,Irrespective of disease status,same_day,V4,69,355.22,140.75,16.94,0.4,PEF (L)
+Home,pef,Irrespective of disease status,same_day,V5,44,371.89,157.92,23.81,0.42,PEF (L)
+Clinic,fef2575,During stable periods,same_week,V1,183,102.17,66.49,4.92,0.65,FEF25-75 (%)
+Clinic,fef2575,During stable periods,same_week,V2,183,96.12,64.58,4.77,0.67,FEF25-75 (%)
+Clinic,fef2575,During stable periods,same_week,V3,150,96.9,61.98,5.06,0.64,FEF25-75 (%)
+Clinic,fef2575,During stable periods,same_week,V4,117,85.92,56.96,5.27,0.66,FEF25-75 (%)
+Clinic,fef2575,During stable periods,same_week,V5,75,95.23,57.9,6.69,0.61,FEF25-75 (%)
+Home,fef2575,During stable periods,same_week,V1,134,113.02,68.59,5.93,0.61,FEF25-75 (%)
+Home,fef2575,During stable periods,same_week,V2,132,114.78,70.32,6.12,0.61,FEF25-75 (%)
+Home,fef2575,During stable periods,same_week,V3,93,116.78,64.1,6.65,0.55,FEF25-75 (%)
+Home,fef2575,During stable periods,same_week,V4,62,105.11,66.73,8.47,0.63,FEF25-75 (%)
+Home,fef2575,During stable periods,same_week,V5,40,119.22,65.88,10.42,0.55,FEF25-75 (%)
+Clinic,fev1,During stable periods,same_week,V1,183,2.27,0.83,0.06,0.36,FEV1 (L/sec)
+Clinic,fev1,During stable periods,same_week,V2,183,2.26,0.83,0.06,0.37,FEV1 (L/sec)
+Clinic,fev1,During stable periods,same_week,V3,150,2.29,0.82,0.07,0.36,FEV1 (L/sec)
+Clinic,fev1,During stable periods,same_week,V4,117,2.16,0.82,0.08,0.38,FEV1 (L/sec)
+Clinic,fev1,During stable periods,same_week,V5,75,2.27,0.81,0.09,0.36,FEV1 (L/sec)
+Home,fev1,During stable periods,same_week,V1,134,2.23,0.86,0.07,0.39,FEV1 (L/sec)
+Home,fev1,During stable periods,same_week,V2,132,2.3,0.9,0.08,0.39,FEV1 (L/sec)
+Home,fev1,During stable periods,same_week,V3,93,2.28,0.82,0.09,0.36,FEV1 (L/sec)
+Home,fev1,During stable periods,same_week,V4,62,2.23,0.96,0.12,0.43,FEV1 (L/sec)
+Home,fev1,During stable periods,same_week,V5,40,2.33,0.84,0.13,0.36,FEV1 (L/sec)
+Clinic,fev1_fvc,During stable periods,same_week,V1,183,70.29,10.97,0.81,0.16,FEV1/FVC
+Clinic,fev1_fvc,During stable periods,same_week,V2,183,68.8,10.52,0.78,0.15,FEV1/FVC
+Clinic,fev1_fvc,During stable periods,same_week,V3,150,68.97,11.03,0.9,0.16,FEV1/FVC
+Clinic,fev1_fvc,During stable periods,same_week,V4,117,67,11.28,1.04,0.17,FEV1/FVC
+Clinic,fev1_fvc,During stable periods,same_week,V5,75,69.03,9.98,1.15,0.14,FEV1/FVC
+Home,fev1_fvc,During stable periods,same_week,V1,134,73.63,11.86,1.02,0.16,FEV1/FVC
+Home,fev1_fvc,During stable periods,same_week,V2,132,73.55,11.76,1.02,0.16,FEV1/FVC
+Home,fev1_fvc,During stable periods,same_week,V3,93,76.12,14.09,1.46,0.19,FEV1/FVC
+Home,fev1_fvc,During stable periods,same_week,V4,62,71.82,14.44,1.83,0.2,FEV1/FVC
+Home,fev1_fvc,During stable periods,same_week,V5,40,78.75,12.96,2.05,0.16,FEV1/FVC
+Clinic,fev1pp,During stable periods,same_week,V1,183,85.51,26.69,1.97,0.31,FEV1 % predicted
+Clinic,fev1pp,During stable periods,same_week,V2,183,84.48,23,1.7,0.27,FEV1 % predicted
+Clinic,fev1pp,During stable periods,same_week,V3,150,84.84,21.75,1.78,0.26,FEV1 % predicted
+Clinic,fev1pp,During stable periods,same_week,V4,117,80.21,21.97,2.03,0.27,FEV1 % predicted
+Clinic,fev1pp,During stable periods,same_week,V5,75,82.85,22.89,2.64,0.28,FEV1 % predicted
+Home,fev1pp,During stable periods,same_week,V1,134,84.75,24.71,2.13,0.29,FEV1 % predicted
+Home,fev1pp,During stable periods,same_week,V2,132,86.7,27.15,2.36,0.31,FEV1 % predicted
+Home,fev1pp,During stable periods,same_week,V3,93,84.46,24.09,2.5,0.29,FEV1 % predicted
+Home,fev1pp,During stable periods,same_week,V4,62,82.57,27.13,3.45,0.33,FEV1 % predicted
+Home,fev1pp,During stable periods,same_week,V5,40,86.43,24.99,3.95,0.29,FEV1 % predicted
+Clinic,fvc,During stable periods,same_week,V1,183,3.25,1.04,0.08,0.32,FVC (L)
+Clinic,fvc,During stable periods,same_week,V2,183,3.27,1,0.07,0.31,FVC (L)
+Clinic,fvc,During stable periods,same_week,V3,150,3.31,1.01,0.08,0.3,FVC (L)
+Clinic,fvc,During stable periods,same_week,V4,117,3.22,1.05,0.1,0.33,FVC (L)
+Clinic,fvc,During stable periods,same_week,V5,75,3.28,1.04,0.12,0.32,FVC (L)
+Home,fvc,During stable periods,same_week,V1,134,3.07,1,0.09,0.33,FVC (L)
+Home,fvc,During stable periods,same_week,V2,132,3.21,1.06,0.09,0.33,FVC (L)
+Home,fvc,During stable periods,same_week,V3,93,3.2,0.95,0.1,0.3,FVC (L)
+Home,fvc,During stable periods,same_week,V4,62,3.25,1.2,0.15,0.37,FVC (L)
+Home,fvc,During stable periods,same_week,V5,40,3.17,1.02,0.16,0.32,FVC (L)
+Clinic,fvcpp,During stable periods,same_week,V1,183,95.63,29.08,2.15,0.3,FVC % predicted
+Clinic,fvcpp,During stable periods,same_week,V2,183,95.14,19.35,1.43,0.2,FVC % predicted
+Clinic,fvcpp,During stable periods,same_week,V3,150,95.93,19.65,1.6,0.2,FVC % predicted
+Clinic,fvcpp,During stable periods,same_week,V4,117,92.77,19.44,1.8,0.21,FVC % predicted
+Clinic,fvcpp,During stable periods,same_week,V5,75,92.71,20.23,2.34,0.22,FVC % predicted
+Home,fvcpp,During stable periods,same_week,V1,134,91.17,20.4,1.76,0.22,FVC % predicted
+Home,fvcpp,During stable periods,same_week,V2,132,94.45,23.2,2.02,0.25,FVC % predicted
+Home,fvcpp,During stable periods,same_week,V3,93,92.51,19.74,2.05,0.21,FVC % predicted
+Home,fvcpp,During stable periods,same_week,V4,62,93.93,24.41,3.1,0.26,FVC % predicted
+Home,fvcpp,During stable periods,same_week,V5,40,90.9,22.38,3.54,0.25,FVC % predicted
+Clinic,pef,During stable periods,same_week,V1,183,344.42,123.78,9.15,0.36,PEF (L)
+Clinic,pef,During stable periods,same_week,V2,183,348.73,123.52,9.13,0.35,PEF (L)
+Clinic,pef,During stable periods,same_week,V3,150,353.8,124.77,10.19,0.35,PEF (L)
+Clinic,pef,During stable periods,same_week,V4,117,346.65,125.45,11.6,0.36,PEF (L)
+Clinic,pef,During stable periods,same_week,V5,75,361.79,130.99,15.13,0.36,PEF (L)
+Home,pef,During stable periods,same_week,V1,134,345.23,124.58,10.76,0.36,PEF (L)
+Home,pef,During stable periods,same_week,V2,132,375.44,137.34,11.95,0.37,PEF (L)
+Home,pef,During stable periods,same_week,V3,93,369.66,127.55,13.23,0.35,PEF (L)
+Home,pef,During stable periods,same_week,V4,62,365.75,142,18.03,0.39,PEF (L)
+Home,pef,During stable periods,same_week,V5,40,379.66,157.19,24.85,0.41,PEF (L)
+Clinic,fef2575,Irrespective of disease status,same_week,V1,189,102.25,66.55,4.84,0.65,FEF25-75 (%)
+Clinic,fef2575,Irrespective of disease status,same_week,V2,199,98.37,64.54,4.57,0.66,FEF25-75 (%)
+Clinic,fef2575,Irrespective of disease status,same_week,V3,173,95.87,62.31,4.74,0.65,FEF25-75 (%)
+Clinic,fef2575,Irrespective of disease status,same_week,V4,129,84.6,57.52,5.06,0.68,FEF25-75 (%)
+Clinic,fef2575,Irrespective of disease status,same_week,V5,82,93.06,58.34,6.44,0.63,FEF25-75 (%)
+Home,fef2575,Irrespective of disease status,same_week,V1,134,113.02,68.59,5.93,0.61,FEF25-75 (%)
+Home,fef2575,Irrespective of disease status,same_week,V2,141,115.76,69.1,5.82,0.6,FEF25-75 (%)
+Home,fef2575,Irrespective of disease status,same_week,V3,108,114.99,61.63,5.93,0.54,FEF25-75 (%)
+Home,fef2575,Irrespective of disease status,same_week,V4,69,104.21,67.18,8.09,0.64,FEF25-75 (%)
+Home,fef2575,Irrespective of disease status,same_week,V5,44,117.33,64.55,9.73,0.55,FEF25-75 (%)
+Clinic,fev1,Irrespective of disease status,same_week,V1,189,2.27,0.82,0.06,0.36,FEV1 (L/sec)
+Clinic,fev1,Irrespective of disease status,same_week,V2,199,2.29,0.82,0.06,0.36,FEV1 (L/sec)
+Clinic,fev1,Irrespective of disease status,same_week,V3,173,2.26,0.82,0.06,0.36,FEV1 (L/sec)
+Clinic,fev1,Irrespective of disease status,same_week,V4,129,2.13,0.84,0.07,0.39,FEV1 (L/sec)
+Clinic,fev1,Irrespective of disease status,same_week,V5,82,2.23,0.82,0.09,0.37,FEV1 (L/sec)
+Home,fev1,Irrespective of disease status,same_week,V1,134,2.23,0.86,0.07,0.39,FEV1 (L/sec)
+Home,fev1,Irrespective of disease status,same_week,V2,141,2.33,0.89,0.07,0.38,FEV1 (L/sec)
+Home,fev1,Irrespective of disease status,same_week,V3,108,2.26,0.79,0.08,0.35,FEV1 (L/sec)
+Home,fev1,Irrespective of disease status,same_week,V4,69,2.2,0.95,0.11,0.43,FEV1 (L/sec)
+Home,fev1,Irrespective of disease status,same_week,V5,44,2.28,0.85,0.13,0.37,FEV1 (L/sec)
+Clinic,fev1_fvc,Irrespective of disease status,same_week,V1,189,70.34,11.03,0.8,0.16,FEV1/FVC
+Clinic,fev1_fvc,Irrespective of disease status,same_week,V2,199,69.07,10.51,0.75,0.15,FEV1/FVC
+Clinic,fev1_fvc,Irrespective of disease status,same_week,V3,173,68.92,11.02,0.84,0.16,FEV1/FVC
+Clinic,fev1_fvc,Irrespective of disease status,same_week,V4,129,66.51,11.57,1.02,0.17,FEV1/FVC
+Clinic,fev1_fvc,Irrespective of disease status,same_week,V5,82,68.44,10.75,1.19,0.16,FEV1/FVC
+Home,fev1_fvc,Irrespective of disease status,same_week,V1,134,73.63,11.86,1.02,0.16,FEV1/FVC
+Home,fev1_fvc,Irrespective of disease status,same_week,V2,141,73.65,11.49,0.97,0.16,FEV1/FVC
+Home,fev1_fvc,Irrespective of disease status,same_week,V3,108,76.53,13.63,1.31,0.18,FEV1/FVC
+Home,fev1_fvc,Irrespective of disease status,same_week,V4,69,71.97,14.08,1.7,0.2,FEV1/FVC
+Home,fev1_fvc,Irrespective of disease status,same_week,V5,44,78.57,12.46,1.88,0.16,FEV1/FVC
+Clinic,fev1pp,Irrespective of disease status,same_week,V1,189,85.29,26.45,1.92,0.31,FEV1 % predicted
+Clinic,fev1pp,Irrespective of disease status,same_week,V2,199,84.76,22.44,1.59,0.26,FEV1 % predicted
+Clinic,fev1pp,Irrespective of disease status,same_week,V3,173,84.02,22.59,1.72,0.27,FEV1 % predicted
+Clinic,fev1pp,Irrespective of disease status,same_week,V4,129,79.67,22.85,2.01,0.29,FEV1 % predicted
+Clinic,fev1pp,Irrespective of disease status,same_week,V5,82,82.12,23.78,2.63,0.29,FEV1 % predicted
+Home,fev1pp,Irrespective of disease status,same_week,V1,134,84.75,24.71,2.13,0.29,FEV1 % predicted
+Home,fev1pp,Irrespective of disease status,same_week,V2,141,87.02,26.73,2.25,0.31,FEV1 % predicted
+Home,fev1pp,Irrespective of disease status,same_week,V3,108,84.24,23.46,2.26,0.28,FEV1 % predicted
+Home,fev1pp,Irrespective of disease status,same_week,V4,69,82,27.54,3.32,0.34,FEV1 % predicted
+Home,fev1pp,Irrespective of disease status,same_week,V5,44,84.62,25.98,3.92,0.31,FEV1 % predicted
+Clinic,fvc,Irrespective of disease status,same_week,V1,189,3.26,1.03,0.07,0.31,FVC (L)
+Clinic,fvc,Irrespective of disease status,same_week,V2,199,3.31,0.98,0.07,0.3,FVC (L)
+Clinic,fvc,Irrespective of disease status,same_week,V3,173,3.27,1,0.08,0.31,FVC (L)
+Clinic,fvc,Irrespective of disease status,same_week,V4,129,3.19,1.05,0.09,0.33,FVC (L)
+Clinic,fvc,Irrespective of disease status,same_week,V5,82,3.25,1.04,0.11,0.32,FVC (L)
+Home,fvc,Irrespective of disease status,same_week,V1,134,3.07,1,0.09,0.33,FVC (L)
+Home,fvc,Irrespective of disease status,same_week,V2,141,3.24,1.05,0.09,0.32,FVC (L)
+Home,fvc,Irrespective of disease status,same_week,V3,108,3.16,0.92,0.09,0.29,FVC (L)
+Home,fvc,Irrespective of disease status,same_week,V4,69,3.2,1.19,0.14,0.37,FVC (L)
+Home,fvc,Irrespective of disease status,same_week,V5,44,3.09,1.05,0.16,0.34,FVC (L)
+Clinic,fvcpp,Irrespective of disease status,same_week,V1,189,95.43,28.78,2.09,0.3,FVC % predicted
+Clinic,fvcpp,Irrespective of disease status,same_week,V2,199,95.26,18.91,1.34,0.2,FVC % predicted
+Clinic,fvcpp,Irrespective of disease status,same_week,V3,173,94.93,20.37,1.55,0.21,FVC % predicted
+Clinic,fvcpp,Irrespective of disease status,same_week,V4,129,92.61,19.81,1.74,0.21,FVC % predicted
+Clinic,fvcpp,Irrespective of disease status,same_week,V5,82,92.35,20.26,2.24,0.22,FVC % predicted
+Home,fvcpp,Irrespective of disease status,same_week,V1,134,91.17,20.4,1.76,0.22,FVC % predicted
+Home,fvcpp,Irrespective of disease status,same_week,V2,141,94.7,23.06,1.94,0.24,FVC % predicted
+Home,fvcpp,Irrespective of disease status,same_week,V3,108,91.89,19.61,1.89,0.21,FVC % predicted
+Home,fvcpp,Irrespective of disease status,same_week,V4,69,93.08,24.96,3,0.27,FVC % predicted
+Home,fvcpp,Irrespective of disease status,same_week,V5,44,88.64,24.17,3.64,0.27,FVC % predicted
+Clinic,pef,Irrespective of disease status,same_week,V1,189,344.42,122.55,8.91,0.36,PEF (L)
+Clinic,pef,Irrespective of disease status,same_week,V2,199,351.67,122.65,8.69,0.35,PEF (L)
+Clinic,pef,Irrespective of disease status,same_week,V3,173,348.95,126.12,9.59,0.36,PEF (L)
+Clinic,pef,Irrespective of disease status,same_week,V4,129,341.09,129.22,11.38,0.38,PEF (L)
+Clinic,pef,Irrespective of disease status,same_week,V5,82,356.34,130.93,14.46,0.37,PEF (L)
+Home,pef,Irrespective of disease status,same_week,V1,134,345.23,124.58,10.76,0.36,PEF (L)
+Home,pef,Irrespective of disease status,same_week,V2,141,378.02,135.27,11.39,0.36,PEF (L)
+Home,pef,Irrespective of disease status,same_week,V3,108,366.3,124.29,11.96,0.34,PEF (L)
+Home,pef,Irrespective of disease status,same_week,V4,69,355.22,140.75,16.94,0.4,PEF (L)
+Home,pef,Irrespective of disease status,same_week,V5,44,371.89,157.92,23.81,0.42,PEF (L)
