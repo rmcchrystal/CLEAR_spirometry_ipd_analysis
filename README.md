@@ -2,7 +2,7 @@
 Public repository containing analysis materials for "Unsupervised home spirometry versus supervised clinic spirometry: Analysis of longitudinal participant-level data from the CLEAR trial in patients with bronchiectasis"
 
 ## Overview
-We have provided the analysis pipeline for the analysis, comprising R scripts written to prepare, analyse and summarise spirometry data. We are unable to provide the individual participant data used for the analysis, and as such the analysis with current materials cannot be replicated externally. We share these materials solely for the transparency of our analysis setup and for the availability of outputs that formed the main and supplementary results.
+We have provided the analysis pipeline, comprising R scripts written to prepare, analyse and summarise spirometry data. We are unable to provide the individual participant data used for the analysis, and as such the analysis with current materials cannot be replicated externally. We share these materials solely for the transparency of our analysis setup and for the availability of outputs that formed the main and supplementary results.
 
 ## Materials
 **Scripts** - R scripts written for data preparation and analysis
