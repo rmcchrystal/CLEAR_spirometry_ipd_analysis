@@ -316,8 +316,10 @@ e_tidy_3d <- e_id_3d %>%
   ungroup() %>% 
   mutate(type = if_else(type != "missed", "full", type)) %>% 
   select(
-    site, id, date, data, status, covid_tmpt, fev1, fev1p, fev1pp, 
-    fvc, fvcp, fvcpp, fev1_fvc, fef2575, pef,
+    site, id, date, data, status, covid_tmpt, 
+    age, age_at_date, sex, race, height,
+    fev1, fev1p, fev1pp, 
+    fvc, fvcp, fvcpp, fev1_fvc,  fef2575, pef,
     tmpt, pex_status, pex_id, type, proxy_flag
   ) %>% 
   arrange(site, id, date)
@@ -486,7 +488,9 @@ f_tidy_7d <- f_id_7d %>%
   ungroup() %>% 
   mutate(type = if_else(type != "missed", "full", type)) %>% 
   select(
-    site, id, date, data, status, covid_tmpt, fev1, fev1p, fev1pp, 
+    site, id, date, data, status, covid_tmpt, 
+    age, age_at_date, sex, race, height,
+    fev1, fev1p, fev1pp, 
     fvc, fvcp, fvcpp, fev1_fvc,  fef2575, pef,
     tmpt, pex_status, pex_id, type, proxy_flag
   ) %>% 
@@ -509,6 +513,22 @@ d_df <- e_nest_3d %>%
       nest(.key = "pex_orig")
   ) %>% 
   select(site, id, pex_orig, pex_3d, pex_7d)
+
+# Double check data quantities
+# All retains - 278 clinic, 257 home
+d_df %>% 
+  select(id, pex_3d) %>%
+  unnest(pex_3d) %>% 
+  ungroup() %>%
+  count(id, data) %>% 
+  count(data)
+
+d_df %>% 
+  select(id, pex_7d) %>%
+  unnest(pex_7d) %>% 
+  ungroup() %>%
+  count(id, data) %>% 
+  count(data)
 
 # Save
 saveRDS(d_df, "Processed_data/analysis_data.rds")

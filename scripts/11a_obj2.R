@@ -91,7 +91,7 @@ d_df <- d_visits %>%
       "fvcpp"    ~ "FVC % predicted",
       "fev1_fvc" ~ "FEV1/FVC",
       "fef2575"  ~ "FEF25-75 (%)",
-      "pef"      ~ "PEF (L)"
+      "pef"      ~ "PEF (L/min)"
     ),
     data = case_match(
       data,
@@ -290,7 +290,7 @@ g_nested <- g_nested %>%
           "fev1pp"  ~ "FEV1 % predicted",
           "fvcpp"   ~ "FVC % predicted",
           "fef2575" ~ "FEF25-75 (%)",
-          "pef"     ~ "PEF (L)"
+          "pef"     ~ "PEF (L/min)"
         )
         
         if (.t == "weekly") {
@@ -395,7 +395,7 @@ g_all_summaries <- g_nested %>%
       "fev1pp"  ~ "FEV1 % predicted",
       "fvcpp"   ~ "FVC % predicted",
       "fef2575" ~ "FEF25-75 (%)",
-      "pef"     ~ "PEF (L)"
+      "pef"     ~ "PEF (L/min)"
     )
   )
 
@@ -429,16 +429,16 @@ f_home <- readRDS("processed_data/analysis_data.rds") %>%
   select(site, id, pex_orig) %>% 
   unnest(pex_orig) %>% 
   filter(data == "home") %>% 
-  select(id, date, fev1, fvc, fev1pp, fvcpp, fef2575, pef)
+  select(id, date, status, fev1, fvc, fev1pp, fvcpp, fef2575, pef)
 
 f_clinic <- readRDS("processed_data/analysis_data.rds") %>% 
   select(site, id, pex_orig) %>% 
   unnest(pex_orig) %>% 
   filter(data == "clinic") %>% 
-  select(id, date, fev1, fvc, fev1pp, fvcpp, fef2575, pef)
+  select(id, date, status, fev1, fvc, fev1pp, fvcpp, fef2575, pef)
 
 f_base <- d_visits %>%
-  select(id,visit,date) %>%
+  select(id, visit, date) %>%
   distinct() %>%
   filter(!is.na(visit)) %>%
   left_join(f_home, by = c("id", "date")) %>%
@@ -465,56 +465,118 @@ f_cross <- f_setup %>%
           home = all_of(home_col),
           clinic = all_of(clinic_col)
         ) %>%
-        filter(!is.na(home), !is.na(clinic))
+        filter(!is.na(home), !is.na(clinic)) %>% 
+        left_join(
+          readRDS("processed_data/analysis_data.rds") %>% 
+            select(site, id, pex_orig) %>% 
+            unnest(pex_orig) %>% 
+            ungroup() %>% 
+            select(id, status)
+        )
     })
   )
+
+# Helper function to fit linear mixed effects model for ICC
+fit_icc_lmm <- function(df) {
+  
+  n <- length(unique(df$id))
+  if(n < 5) return(NULL)
+  
+  diff_vec <- df$clinic - df$home
+  
+  long <- df %>%
+    pivot_longer(
+      cols = c(home,clinic),
+      names_to = "method",
+      values_to = "value"
+    ) %>%
+    mutate(
+      method = factor(method, levels = c("clinic", "home"))
+    )
+  
+  # Same specification for ICC and CV
+  # Method as fixed effect, random participant-level intercepts
+  icc_fit <- lmer(value ~ method + (1 | id), data = long, REML=TRUE)
+  
+  vc <- as.data.frame(VarCorr(icc_fit))
+  
+  var_id <- vc %>% 
+    filter(grp == "id") %>% 
+    pull(vcov)
+  
+  var_resid <- sigma(icc_fit)^2
+  
+  icc_lmm <- var_id / (var_id + var_resid)
+  
+  icc_boot <- tryCatch(
+    suppressMessages(
+      bootMer(
+        icc_fit,
+        FUN = function(fit) {
+          
+          vc <- as.data.frame(VarCorr(fit))
+          
+          var_id <- vc %>% 
+            filter(grp == "id") %>% 
+            pull(vcov)
+          
+          var_resid <- sigma(fit)^2
+          
+          var_id / (var_id + var_resid)
+        },
+        nsim = 1000,
+        type = "parametric",
+        use.u = FALSE
+      )
+    ),
+    error = function(e) NULL
+  )
+  
+  icc_ci <- if(is.null(icc_boot)) {
+    c(NA_real_, NA_real_)
+  } else {
+    quantile(icc_boot$t[,1], probs = c(0.025, 0.975), na.rm = TRUE)
+  }
+  
+  fit <- lmer(log(value) ~ method + (1 | id), data = long, REML=TRUE)
+  sigma_w <- sigma(fit)
+  
+  ci_sigma <- suppressMessages(
+    confint(fit, parm = ".sigma", method = "profile")
+  )
+  
+  sigma_lo <- ci_sigma[".sigma", "2.5 %"]
+  sigma_hi <- ci_sigma[".sigma", "97.5 %"]
+  
+  cv_within <- sqrt(exp(sigma_w^2) - 1)
+  cv_lo     <- sqrt(exp(sigma_lo^2) - 1)
+  cv_hi     <- sqrt(exp(sigma_hi^2) - 1)
+  
+  tibble(
+    n = n,
+    icc = icc_lmm,
+    icc_lo = icc_ci[1],
+    icc_hi = icc_ci[2],
+    cv_within = 100 * cv_within,
+    cv_lo = 100 * cv_lo,
+    cv_hi = 100 * cv_hi,
+    mean_diff = mean(diff_vec, na.rm = TRUE),
+    sd_diff = sd(diff_vec, na.rm = TRUE),
+    mean_diff_lo = mean(diff_vec, na.rm = TRUE) - 1.96 * sd(diff_vec, na.rm = TRUE) / sqrt(n),
+    mean_diff_hi = mean(diff_vec, na.rm = TRUE) + 1.96 * sd(diff_vec, na.rm = TRUE) / sqrt(n),
+    loa_lower = mean(diff_vec, na.rm = TRUE) - 1.96 * sd(diff_vec, na.rm = TRUE),
+    loa_upper = mean(diff_vec, na.rm = TRUE) + 1.96 * sd(diff_vec, na.rm = TRUE),
+    random_intercept = "participant",
+    random_slope = "not fitted"
+  )
+}
+
+set.seed(1234)
 
 f_icc_nest <- f_cross %>%
   mutate(
     results = map(data, ~ {
-      
-      df <- .x
-      if(nrow(df)<5) return(NULL)
-      n <- length(unique(df$id))
-      
-      icc_fit <- icc(
-        df %>% select(clinic,home),
-        model = "twoway",
-        type = "agreement",
-        unit = "single"
-      )
-      
-      diff_vec <- df$clinic - df$home
-      
-      long <- df %>%
-        pivot_longer(
-          cols=c(home,clinic),
-          names_to="method",
-          values_to="value"
-        )
-    
-      fit <- lmer(log(value)~1+(1|id),data=long,REML=TRUE)
-      sigma_w <- sigma(fit)
-      cv_hat  <- sqrt(exp(sigma_w^2)-1)
-      
-      ci_sigma <- suppressMessages(
-        confint(fit,parm=".sigma",method="profile")
-      )
-      
-      tibble(
-        n          = n,
-        icc        = icc_fit$value,
-        icc_lo     = icc_fit$lbound,
-        icc_hi     = icc_fit$ubound,
-        cv_within  = cv_hat,
-        cv_lo      = sqrt(exp(ci_sigma[1]^2)-1),
-        cv_hi      = sqrt(exp(ci_sigma[2]^2)-1),
-        mean_diff  = mean(diff_vec),
-        sd_diff    = sd(diff_vec),
-        lo_diff    = mean(diff_vec) - 1.96 * sd(diff_vec) / sqrt(n),
-        hi_diff    = mean(diff_vec) + 1.96 * sd(diff_vec) / sqrt(n)
-      )
-      
+      fit_icc_lmm(.x)
     })
   )
 
@@ -531,11 +593,270 @@ f_icc_summary <- f_icc_nest %>%
       "fef2575" ~ "FEF25-75 (%)",
       "pef"     ~ "PEF (L)"
     ),
-    across(contains("cv"), ~ round(. * 100, 3))
+    across(contains("cv"), ~ round(., 3)),
+    across(starts_with("icc"), ~ round(., 3))
   ) %>%
   arrange(measure, visit)
 
 write_csv(
   f_icc_summary,
   "outputs/objs/02_variation/summaries/icc_cv_diff_summary.csv"
+)
+
+# Completers-only
+# f_icc_summary_compl <- f_icc_nest %>% 
+#   select(measure, visit, results_compl) %>%
+#   unnest(results_compl) %>% 
+#   ungroup() %>% 
+#   mutate(
+#     measure = case_match(
+#       measure,
+#       "fev1"    ~ "FEV1 (L/sec)",
+#       "fvc"     ~ "FVC (L)",
+#       "fev1pp"  ~ "FEV1 % predicted",
+#       "fvcpp"   ~ "FVC % predicted",
+#       "fef2575" ~ "FEF25-75 (%)",
+#       "pef"     ~ "PEF (L/min)"
+#     ),
+#     across(contains("cv"), ~ round(., 3))
+#   ) %>%
+#   arrange(measure, visit)
+
+# Combine summaries
+# f_icc_summary_all <- f_icc_summary %>% 
+#   mutate(type = "all") %>% 
+#   full_join(f_icc_summary_compl %>% mutate(type = "completers")) %>% 
+#   arrange(measure, visit, type) %>% 
+#   select(type, everything())
+
+# Join with full population summary
+# f_icc_sum_all <- f_icc_summary %>% 
+#   # pivot_longer(-c(measure, visit, n)) %>% 
+#   mutate(popn = "FAS") %>% 
+#   full_join(
+#     f_icc_summary_compl %>% 
+#       # pivot_longer(-c(measure, visit, n)) %>% 
+#       mutate(popn = "Completers only") 
+#   ) %>% 
+#   arrange(measure, visit, popn) %>% 
+#   select(popn, everything())
+
+# write_csv(
+#   f_icc_sum_all,
+#   "outputs/objs/02_variation/summaries/icc_cv_diff_summary_vs_compl.csv"
+# )
+
+# Plot
+# f_icc_plot <- f_icc_summary %>%
+#   mutate(
+#     measure = factor(
+#       measure,
+#       levels = c(
+#         "FEV1 (L/sec)", "FEV1 % predicted", "FVC (L)", "FVC % predicted",
+#         "FEF25-75 (%)", "PEF (L/min)"
+#       )
+#     ),
+#     popn = factor(popn, levels = c("FAS", "Completers only")),
+#     visit = case_match(
+#       visit,
+#       "V1" ~ "V1 (Baseline)",
+#       "V2" ~ "V2 (Week 2)",
+#       "V3" ~ "V3 (Week 8)",
+#       "V4" ~ "V4 (Week 26)",
+#       "V5" ~ "V5 (Week 52)"
+#     )
+#   ) %>%
+#   group_by(measure) %>%
+#   nest() %>%
+#   mutate(
+#     plot_nm = paste0(
+#       "plot_",
+#       str_trim(gsub("%|\\-|\\(|\\)|/| ", "", measure))
+#     ),
+#     plot = map2(data, measure, ~ {
+#       .x %>%
+#         ggplot(aes(x = visit, y = cv_within, colour = popn)) +
+#         geom_point(size = 0.5) +
+#         geom_linerange(aes(ymin = cv_lo, ymax = cv_hi)) +
+#         theme_classic() +
+#         labs(
+#           x = "Visit",
+#           y = "Coefficient of variation (%)",
+#           colour = "Analysis set"
+#         ) +
+#         theme(
+#           axis.text.x = element_text(angle = 45, hjust = 1),
+#           legend.position = "bottom"
+#         ) +
+#         ggtitle(label = .y)
+#     })
+#   )
+# 
+# walk2(
+#   .x = f_icc_plot$plot,
+#   .y = f_icc_plot$plot_nm,
+#   ~ ggsave(
+#     paste0("outputs/objs/02_variation/plots/cv_compare/", .y, ".png"),
+#     .x,
+#     width = 4,
+#     height = 3,
+#     units = "in"
+#   )
+# )
+
+# Annualised rate of change ----------------------------------------------------
+
+# Supplementary analysis
+# Baseline visit dates
+h_v1 <- d_visits %>% 
+  filter(visit == "V1") %>% 
+  select(id, bl_date = date) %>% 
+  distinct()
+
+# Baseline paired home and clinic measurements
+h_bl <- readRDS("processed_data/analysis_data.rds") %>% 
+  select(site, id, pex_orig) %>% 
+  unnest(pex_orig) %>% 
+  filter(data %in% c("clinic", "home")) %>% 
+  select(id, date, data, fev1, fvc, fev1pp, fvcpp, fef2575, pef, disease_status) %>% 
+  inner_join(
+    h_v1 %>% rename(date = bl_date),
+    by = c("id", "date")
+  ) %>% 
+  rename(bl_date = date) %>% 
+  pivot_longer(
+    cols = c(fev1, fvc, fev1pp, fvcpp, fef2575, pef),
+    names_to = "measure",
+    values_to = "value"
+  ) %>% 
+  select(id, bl_date, data, measure, value) %>% 
+  distinct() %>% 
+  pivot_wider(names_from = data, values_from = value) %>% 
+  filter(
+    !is.na(home),
+    !is.na(clinic)
+  ) %>% 
+  select(id, measure, bl_date, home_bl = home, clinic_bl = clinic)
+
+# Check baseline denominator
+h_bl_check <- h_bl %>% 
+  count(measure, name = "n_bl")
+
+# Longitudinal home and clinic spirometry
+h_long <- readRDS("processed_data/analysis_data.rds") %>% 
+  select(site, id, pex_orig) %>% 
+  unnest(pex_orig) %>% 
+  filter(data %in% c("clinic", "home")) %>% 
+  select(id, date, data, fev1, fvc, fev1pp, fvcpp, fef2575, pef, disease_status) %>% 
+  pivot_longer(
+    cols = c(fev1, fvc, fev1pp, fvcpp, fef2575, pef),
+    names_to = "measure",
+    values_to = "value"
+  ) %>% 
+  inner_join(
+    h_bl %>% select(id, measure, bl_date),
+    by = c("id", "measure")
+  ) %>% 
+  filter(!is.na(value)) %>% 
+  mutate(
+    time_yr = as.numeric(date - bl_date) / 365.25,
+    data = factor(data, levels = c("clinic", "home"))
+  ) %>% 
+  filter(
+    time_yr >= 0,
+    time_yr <= 1
+  )
+
+# Define scenarios
+h_scenarios <- crossing(
+  measure = c("fev1", "fvc", "fev1pp", "fvcpp", "fef2575", "pef"),
+  popn    = c("all", "stable")
+)
+
+# Helper function to estimate annualised slopes
+fit_slope_lmm <- function(df) {
+  
+  n <- length(unique(df$id))
+  if(n < 5) return(NULL)
+  
+  if(length(unique(df$data)) < 2) return(NULL)
+  
+  fit <- lmer(value ~ time_yr * data + (1 | id), data = df, REML=FALSE)
+  
+  b <- fixef(fit)
+  v <- vcov(fit)
+  
+  clinic_slope <- b["time_yr"]
+  home_slope   <- b["time_yr"] + b["time_yr:datahome"]
+  slope_diff   <- -b["time_yr:datahome"]
+  
+  clinic_se <- sqrt(v["time_yr", "time_yr"])
+  
+  home_se <- sqrt(
+    v["time_yr", "time_yr"] +
+      v["time_yr:datahome", "time_yr:datahome"] +
+      2 * v["time_yr", "time_yr:datahome"]
+  )
+  
+  slope_diff_se <- sqrt(v["time_yr:datahome", "time_yr:datahome"])
+  
+  tibble(
+    n = n_distinct(df$id),
+    n_obs = nrow(df),
+    n_clinic = length(unique(df$id[df$data == "clinic"])),
+    n_home = length(unique(df$id[df$data == "home"])),
+    clinic_slope = clinic_slope,
+    clinic_lo = clinic_slope - 1.96 * clinic_se,
+    clinic_hi = clinic_slope + 1.96 * clinic_se,
+    home_slope = home_slope,
+    home_lo = home_slope - 1.96 * home_se,
+    home_hi = home_slope + 1.96 * home_se,
+    slope_diff = slope_diff,
+    slope_diff_lo = slope_diff - 1.96 * slope_diff_se,
+    slope_diff_hi = slope_diff + 1.96 * slope_diff_se,
+    slope_diff_p = 2 * pnorm(abs(slope_diff / slope_diff_se), lower.tail = FALSE)
+  )
+}
+
+# Fit annualised slope models
+h_slope <- h_scenarios %>% 
+  mutate(
+    data = map2(measure, popn, ~ {
+      
+      df <- h_long %>% filter(measure == .x)
+      
+      if(.y == "stable") {
+        df <- df %>% filter(disease_status == "stable")
+      }
+      
+      df
+    }),
+    results = map(data, fit_slope_lmm)
+  )
+
+# Summarise annualised slopes
+h_slope_summary <- h_slope %>% 
+  select(measure, popn, results) %>% 
+  unnest(results) %>% 
+  mutate(
+    measure = case_match(
+      measure,
+      "fev1"    ~ "FEV1 (L/sec)",
+      "fvc"     ~ "FVC (L)",
+      "fev1pp"  ~ "FEV1 % predicted",
+      "fvcpp"   ~ "FVC % predicted",
+      "fef2575" ~ "FEF25-75 (%)",
+      "pef"     ~ "PEF (L/min)"
+    ),
+    across(
+      c(clinic_slope:slope_diff_hi),
+      ~ round(., 3)
+    ),
+    slope_diff_p = round(slope_diff_p, 3)
+  ) %>% 
+  arrange(measure, popn)
+
+write_csv(
+  h_slope_summary,
+  "outputs/objs/02_variation/summaries/annualised_slope_summary.csv"
 )

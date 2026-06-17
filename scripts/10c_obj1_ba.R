@@ -37,7 +37,7 @@ b_ba_cor <- a_imp_ba_cor %>%
       type == "Irrespective of disease status" & tmpt == "same_week" ~ "same_week_all",
       type == "During stable periods"          & tmpt == "same_day"  ~ "same_day_stable",
       type == "Between PEx start and end"      & tmpt == "same_day"  ~ "same_day_pex",
-      type == "Between PEx start and end" & tmpt == "same_week" ~ "± 7 days during PEx",
+      type == "Between PEx start and end"      & tmpt == "same_week" ~ "± 7 days during PEx",
       TRUE ~ NA_character_
     )
   ) %>% 
@@ -46,17 +46,24 @@ b_ba_cor <- a_imp_ba_cor %>%
 # Define measures
 measure_specs <- tribble(
   ~name,        ~xlab,                                              ~ylab,                                                   ~xlims,        ~ylims,        ~breaks,
-  "fev1",       "Mean of home and clinic FEV1 (L/s)",               "Difference between home and clinic FEV1 (L/s)",         c(0, 6),        c(-4,4),       5,
-  "fvc",        "Mean of home and clinic FVC (L)",                  "Difference between home and clinic FVC (L)",            c(0, 8),        c(-4,6),       5,
-  "fev1pp",     "Mean of home and clinic FEV1 % predicted",         "Difference between home and clinic FEV1 % predicted",   c(0, 200),      c(-100,100),   5,
-  "fvcpp",      "Mean of home and clinic FVC % predicted",          "Difference between home and clinic FVC % predicted",    c(0, 200),      c(-100,100),   5,
-  "fev1_fvc",   "Mean of home and clinic FEV1/FVC",                 "Difference between home and clinic FEV1/FVC",           c(40 ,130),     c(-60,60),     5,
-  "fef2575",    "Mean of home and clinic FEF25-75 (%)",             "Difference between home and clinic FEF25-75 (%)",       c(0, 350),      c(-200, 200),  5,
-  "pef",        "Mean of home and clinic PEF (L)",                  "Difference between home and clinic PEF (L)",            c(0, 900),      c(-500, 500),  5
+  "fev1",       "Mean of clinic and home FEV1 (L/s)",               "Difference between clinic and home FEV1 (L/s)",         c(0, 6),        c(-4,4),       5,
+  "fvc",        "Mean of clinic and home FVC (L)",                  "Difference between clinic and home FVC (L)",            c(0, 8),        c(-4,6),       5,
+  "fev1pp",     "Mean of clinic and home FEV1 % predicted",         "Difference between clinic and home FEV1 % predicted",   c(0, 200),      c(-100,100),   5,
+  "fvcpp",      "Mean of clinic and home FVC % predicted",          "Difference between clinic and home FVC % predicted",    c(0, 200),      c(-100,100),   5,
+  "fev1_fvc",   "Mean of clinic and home FEV1/FVC",                 "Difference between clinic and home FEV1/FVC",           c(40 ,130),     c(-60,60),     5,
+  "fef2575",    "Mean of clinic and home FEF25-75 (%)",             "Difference between clinic and home FEF25-75 (%)",       c(0, 350),      c(-200, 200),  5,
+  "pef",        "Mean of clinic and home PEF (L/min)",              "Difference between clinic and home PEF (L/min)",        c(0, 900),      c(-500, 500),  5
 )
 
+# Define plotting outcomes and analysis window
+plot_names <- c("fev1", "fvc", "fef2575", "pef")
+plot_type <- "same_week_all"
+
 # Create scenario grid
-scenario_grid <- measure_specs
+scenario_grid <- measure_specs %>%
+  filter(name %in% plot_names) %>%
+  mutate(plot_order = match(name, plot_names)) %>%
+  arrange(plot_order)
 
 # Nest and plot
 ba_nested <- scenario_grid %>%
@@ -68,7 +75,7 @@ ba_nested <- scenario_grid %>%
       a_imp_ba %>%
         filter(
           name == .x,
-          type %in% facet_lookup$type_pattern
+          type == plot_type
         ) %>%
         left_join(facet_lookup, by = c("type" = "type_pattern")) %>%
         mutate(
@@ -131,10 +138,14 @@ ba_nested <- scenario_grid %>%
             linetype = "dashed",
             linewidth = 0.5
           ) +
-          facet_wrap(~type, scales = "fixed", axes = "all") +
+          # facet_wrap(~type, scales = "fixed", axes = "all") +
           scale_x_continuous(limits = xlims, n.breaks = nbreaks) +
           scale_y_continuous(limits = ylims, n.breaks = nbreaks) +
           theme_classic() +
+          theme(
+            axis.title.x = element_text(size = 10),
+            axis.title.y = element_text(size = 10)
+          ) +
           labs(x = xlab, y = ylab)
         
         base_plot +
@@ -178,17 +189,33 @@ ba_nested <- scenario_grid %>%
     )
   )
 
-# Save
-walk2(
-  ba_nested$plot_path,
-  ba_nested$plot,
-  ~ ggsave(.x, .y, height = 4, width = 10, units = "in")
+# Combine plots into grid
+ba_grid <- cowplot::plot_grid(
+  plotlist = ba_nested$plot,
+  labels = c("a", "b", "c", "d"),
+  ncol = 2,
+  align = "hv"
 )
+
+ggsave(
+  "outputs/objs/01_agreement/plots/baltman_same_week_all_grid.png",
+  ba_grid,
+  height = 8,
+  width = 8,
+  units = "in"
+)
+
+# Save
+# walk2(
+#   ba_nested$plot_path,
+#   ba_nested$plot,
+#   ~ ggsave(.x, .y, height = 4, width = 10, units = "in")
+# )
 
 # Regression-based Bland-Altman ------------------------------------------------
 
 # Repeat empirical structure
-ba_nested <- scenario_grid %>%
+ba_nested2 <- scenario_grid %>%
   mutate(
     
     # ---- Filter + recode data ----
@@ -197,7 +224,7 @@ ba_nested <- scenario_grid %>%
       a_imp_ba %>%
         filter(
           name == .x,
-          type %in% facet_lookup$type_pattern
+          type == plot_type
         ) %>%
         left_join(facet_lookup, by = c("type" = "type_pattern")) %>%
         mutate(
@@ -313,10 +340,13 @@ ba_nested <- scenario_grid %>%
             linetype = "dashed",
             linewidth = 0.5
           ) +
-          facet_wrap(~type, scales = "fixed", axes = "all") +
           scale_x_continuous(limits = xlims, n.breaks = nbreaks) +
           scale_y_continuous(limits = ylims, n.breaks = nbreaks) +
           theme_classic() +
+          theme(
+            axis.title.x = element_text(size = 10),
+            axis.title.y = element_text(size = 10)
+          ) +
           labs(x = xlab, y = ylab)
         
         base_plot +
@@ -336,19 +366,72 @@ ba_nested <- scenario_grid %>%
     )
   )
 
-# Save
-walk2(
-  ba_nested$plot_path,
-  ba_nested$plot,
-  ~ ggsave(.x, .y, height = 4, width = 10, units = "in")
+# Combine plots into grid
+ba_grid2 <- cowplot::plot_grid(
+  plotlist = ba_nested2$plot,
+  labels = c("a", "b", "c", "d"),
+  ncol = 2,
+  align = "hv"
 )
 
+ggsave(
+  "outputs/objs/01_agreement/plots/baltman_reg_same_week_all_grid.png",
+  ba_grid2,
+  height = 8,
+  width = 8,
+  units = "in"
+)
+
+# Save
+# walk2(
+#   ba_nested$plot_path,
+#   ba_nested$plot,
+#   ~ ggsave(.x, .y, height = 4, width = 10, units = "in")
+# )
+
 # Save regression outputs
-ba_reg_sum <- ba_nested %>%
+ba_reg_sum <- measure_specs %>%
+  mutate(
+    # ---- Filter + recode data ----
+    data = map(name, ~ {
+      
+      a_imp_ba %>%
+        filter(
+          name == .x,
+          type %in% facet_lookup$type_pattern
+        ) %>%
+        left_join(facet_lookup, by = c("type" = "type_pattern")) %>%
+        mutate(
+          type = factor(facet_label, levels = facet_levels)
+        )
+    }),
+    
+    # ---- Compute BA features ----
+    features = map2(data, name, ~ {
+      
+      # Fit regression per facet
+      reg <- .x %>%
+        group_by(type) %>%
+        group_modify(~{
+          
+          fit <- lm(diff ~ mu, data = .x)
+          
+          coef_summary <- summary(fit)$coefficients
+          
+          tibble(
+            intercept = coef_summary["(Intercept)", "Estimate"],
+            slope     = coef_summary["mu", "Estimate"],
+            reg_p     = coef_summary["mu", "Pr(>|t|)"],  # <- key addition
+            sigma     = summary(fit)$sigma,
+            mu_min    = min(.x$mu, na.rm = TRUE),
+            mu_max    = max(.x$mu, na.rm = TRUE)
+          )
+        })
+    })
+  ) %>% 
   select(name, features) %>%
-  mutate(reg = map(features, "reg")) %>%
-  select(-features) %>%
-  unnest(reg)
+  unnest(features) %>% 
+  ungroup()
 
 write_csv(
   ba_reg_sum,

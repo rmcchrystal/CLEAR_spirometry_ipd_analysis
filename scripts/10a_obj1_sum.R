@@ -60,22 +60,35 @@ c_ba <- c_df %>%
   mutate(tmpt = str_extract(type, "same_day|same_week")) %>% 
   pivot_longer(fev1:pef) %>% 
   distinct() %>% 
-  group_by(id, date, type, tmpt, name) %>% 
-  mutate(mu = sum(value, na.rm = TRUE) / 2) %>% 
   pivot_wider(names_from = data, values_from = value) %>% 
   group_by(id, type, tmpt, name) %>% 
   fill(clinic, .direction = "downup") %>% 
   ungroup() %>% 
-  mutate(diff = clinic - home) %>% 
+  filter(
+    !is.na(home),
+    !is.na(clinic)
+  ) %>% 
+  mutate(
+    mu = (clinic + home) / 2,
+    diff = clinic - home
+  ) %>% 
+  group_by(type, tmpt, name, id) %>% 
+  arrange(date, .by_group = TRUE) %>% 
+  slice(1) %>% 
+  ungroup() %>% 
   group_by(type, tmpt, name) %>% 
   mutate(
     bias = mean(diff, na.rm = TRUE),
     stddev = sd(diff, na.rm = TRUE),
-    hi = bias + 2 * stddev,
-    lo = bias - 2 * stddev
+    hi = bias + 1.96 * stddev,
+    lo = bias - 1.96 * stddev
   ) %>% 
-  ungroup() %>% 
-  filter(!is.na(home))
+  ungroup()
+
+# Check there is one pair per participant within each window
+c_ba %>%
+  count(type, tmpt, name, id, name = "n_pairs") %>%
+  filter(n_pairs > 1)
 
 # Save
 saveRDS(c_ba, "scratch_data/bland_altman_data.rds")

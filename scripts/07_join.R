@@ -256,10 +256,25 @@ f_covid %>%
 
 # Calculate % predicted for home spirometry ------------------------------------
 
+# Get full population baseline characteristics
+g_imp_chars <- readRDS("../adherence_substudy/processed_data/baseline_chars_all.rds")
+
 # Join baseline characteristics
 g_chars <- a_imp_denom %>% 
-  select(site, id, age, sex, race, height, weight) %>% 
-  left_join(f_covid)
+  distinct(site, id) %>% 
+  left_join(f_covid) %>%
+  left_join(
+    g_imp_chars %>%
+      group_by(id) %>%
+      nest(.key = "bl_chars")
+  ) %>%
+  left_join(
+    g_imp_chars %>%
+      select(id, dob, age, height, sex, race) %>%
+      group_by(id) %>%
+      nest(.key = "fev1p_chars")
+  ) %>%
+  select(site, id, status, bl_chars, fev1p_chars, everything())
 
 # Calculate FEV1 and FVC % predicted for home spirometry
 # Using rspiro package, pred_GLI
@@ -267,6 +282,8 @@ g_chars <- a_imp_denom %>%
 # Height in metres
 # Ethnicity as ordinal
 g_pred <- g_chars %>% 
+  unnest(fev1p_chars) %>%
+  ungroup() %>%
   mutate(
     sex = case_when(
       sex == 0L ~ 2,
@@ -275,29 +292,37 @@ g_pred <- g_chars %>%
     ),
     race = case_match(
       race,
-      "white" ~ 1,
-      "black_aa" ~ 2,
-      "asian" ~ 4,
-      "other" ~ 5
+      "White" ~ 1,
+      "Black/African/Caribbean/Black British" ~ 2,
+      "Asian/Asian British" ~ 4,
+      "Other (please describe)" ~ 5
     ),
+    race = if_else(is.na(race), 1, race),
     height = height/100,
+    age_at_date = case_when(
+      !is.na(dob) & !is.na(date) ~ time_length(interval(dob, date), unit = "years"),
+      TRUE ~ as.numeric(age)
+    ),
+    # age_at_date = round(age_at_date)
+  ) %>%
+  mutate(
     fev1p = case_when(
       data == "home" 
-      & !is.na(fev1) & !is.na(age) & !is.na(sex) & !is.na(height)
-      & !is.na(race) ~ rspiro::pred_GLI(age, height, sex, race, param = "FEV1"),
+      & !is.na(fev1) & !is.na(age_at_date) & !is.na(sex) & !is.na(height)
+      & !is.na(race) ~ rspiro::pred_GLI(age_at_date, height, sex, race, param = "FEV1"),
       TRUE ~ fev1p
     ),
     fvcp = case_when(
       data == "home" 
-      & !is.na(fvc) & !is.na(age) & !is.na(sex) & !is.na(height)
-      & !is.na(race) ~ rspiro::pred_GLI(age, height, sex, race, param = "FVC"),
+      & !is.na(fvc) & !is.na(age_at_date) & !is.na(sex) & !is.na(height)
+      & !is.na(race) ~ rspiro::pred_GLI(age_at_date, height, sex, race, param = "FVC"),
       TRUE ~ fvcp
     ),
     fev1pp = (fev1/fev1p) * 100,
     fvcpp = (fvc/fvcp) * 100
   ) %>% 
   select(
-    site, id, age, sex, race, height, weight, status, 
+    site, id, dob, age, age_at_date, sex, race, height, status, 
     covid_tmpt, date, data, fef2575, fev1, fev1p, fev1pp,
     fvc, fvcp, fvcpp, fev1_fvc, everything()
   ) %>% 

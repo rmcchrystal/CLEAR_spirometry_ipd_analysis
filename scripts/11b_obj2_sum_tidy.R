@@ -23,9 +23,9 @@ b_prep <- a_imp_cng %>%
 
 b_tidy <- b_prep %>% 
   mutate(
-    across(-c(measure, visit, n), ~ round(., 3)),
+    across(-c(measure, visit, n, random_intercept, random_slope), ~ round(., 3)),
     chng = paste0(chng_mean, " [", chng_lo, ", ", chng_hi, "]"),
-    diff = paste0(mean_diff, " [", lo_diff, ", ", hi_diff, "]"),
+    diff = paste0(mean_diff, " [", mean_diff_lo, ", ", mean_diff_hi, "]"),
     icc = paste0(icc, " [", icc_lo, ", ", icc_hi, "]"),
     cv = paste0(cv_within, " [", cv_lo, ", ", cv_hi, "]")
   ) %>% 
